@@ -1,0 +1,26 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Create Multiple Trades</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-inline"
+              ng-submit="createTrades(numOrders)">
+            <div class="form-group">
+                <label>Enter Number of Trades</label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="numOrders">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary"
+                ng-click="createTrades(numOrders)">
+            Create
+        </button>
+        <button class="btn btn-warning"
+                ng-click="cancel()">
+            Cancel
+        </button>
+    </div>
+</div>

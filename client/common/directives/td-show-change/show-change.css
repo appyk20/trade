@@ -1,0 +1,68 @@
+/* Show change directive*/
+.td-show-change-pipe {
+    display:inline-block;
+    width: 3px;
+    height:100%;
+    line-height:100%;
+    vertical-align: middle;
+    border-color: transparent;
+}
+.td-show-change-pipe:after{
+    content: '.';
+    width: 0;
+    color: transparent;
+}
+.td-show-change-pipe.sc-up {
+  background-color: green;
+}
+.td-show-change-pipe.sc-down {
+    background-color: red;
+}
+
+/**
+  CSS Animations
+*/
+/*
+.td-show-change-pipe.sc-up{
+  -webkit-animation:1s sc-up;
+  -moz-animation:1s sc-up;
+  -o-animation:1s sc-up;
+  animation:1s sc-up;
+}
+@-webkit-keyframes sc-up {
+  from { border-color: green; }
+  to { border-color: transparent; }
+}
+@keyframes sc-up {
+   from { border-color: green; }
+  to { border-color: none; }
+}
+.td-show-change-pipe.sc-down{
+  -webkit-animation:1s sc-down;
+  -moz-animation:1s sc-down;
+  -o-animation:1s sc-down;
+  animation:1s sc-down;
+}
+@-webkit-keyframes sc-down {
+  from { border-color: red; }
+  to { border-color: none; }
+}
+@keyframes sc-down {
+   from { border-color: red; }
+  to { border-color: none; }
+}
+.td-show-change-pipe.sc-alert{
+  -webkit-animation:1s sc-alert;
+  -moz-animation:1s sc-alert;
+  -o-animation:1s sc-alert;
+  animation:1s sc-alert;
+}
+@-webkit-keyframes sc-alert {
+  from { border-color: blue; }
+  to { border-color: none; }
+}
+@keyframes sc-alert {
+   from { border-color: blue; }
+  to { border-color: none; }
+}
+*/

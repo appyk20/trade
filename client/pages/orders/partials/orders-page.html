@@ -1,0 +1,73 @@
+<section ng-init="init()">
+	<hr />
+	<div class="grid-container">
+		<section data-rel="trader-controls"
+                 ng-if="!!loggedInUser" >
+			<div class="pull-left">
+				<button class="btn btn-default"
+                        ng-click="createOrder()">
+                    Trade
+                </button>
+				<button class="btn btn-default"
+                        ng-click="deleteAllOrders()">
+                    Delete All
+                </button>
+				<button class="btn btn-default"
+                        ng-click="refresh()">
+                    Refresh
+                </button>
+                <span>Total Orders : <strong>{{orders.length}}</strong></span>
+			</div>
+            <div class="pull-right">
+                <button class="btn btn-default"
+                        ng-disabled="currentView=='kendo-grid'"
+                        ng-click="switchToView('kendo-grid')">
+                    Kendo Grid
+                </button>
+                <button class="btn btn-default"
+                        ng-disabled="currentView=='ng-grid'"
+                        ng-click="switchToView('ng-grid')">
+                    ngGrid
+                </button>
+                <button class="btn btn-default"
+                        ng-disabled="currentView=='table'"
+                        ng-click="switchToView('table')">
+                    <i class="glyphicon glyphicon-th-list glyphicon-white"></i>
+                </button>
+                <button class="btn btn-default"
+                        ng-disabled="currentView=='d3chart'"
+                        ng-click="switchToView('d3chart')">
+                    d3 chart
+                </button>
+                <button class="btn btn-default"
+                        ng-disabled="currentView=='chart'"
+                        ng-click="switchToView('chart')">
+                    <i class="glyphicon glyphicon-signal"></i>
+                </button>
+            </div>
+			<div class="clearfix"></div>
+		</section>
+
+        <div class="orders-table"
+             ng-if="currentView=='table'"
+             ng-include="'pages/orders/components/table-grid/orders-table-grid.html'">
+        </div>
+
+        <div  ng-if="currentView=='d3chart'">
+            <orders-bar-chart orders="orders"></orders-bar-chart>
+        </div>
+
+        <div  ng-if="currentView=='chart'">
+            <orders-floating-bars orders="orders"></orders-floating-bars>
+        </div>
+
+		<div class="no-orders-message"
+             ng-show="orders.length==0">No Orders To Show</div>
+
+        <div ng-if="currentView=='ng-grid'"
+             ng-include="'pages/orders/components/ng-grid/orders-ng-grid.html'"></div>
+
+        <div ng-if="currentView=='kendo-grid'"
+             ng-include="'pages/orders/components/kendo-grid/orders-kendo-grid.html'"></div>
+	</div>
+</section>
